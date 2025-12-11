@@ -1,0 +1,28 @@
+---
+openapi: 3.1.0
+paths:
+  /labseq/{n}:
+    get:
+      summary: Get LabSeq value
+      description: Returns the LabSeq sequence value for the given index n.
+      parameters:
+      - name: "n"
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: LabSeq value returned successfully
+          content:
+            text/plain:
+              schema:
+                type: string
+        "400":
+          description: Invalid index. n must be non-negative.
+      tags:
+      - Labseq Calculator
+info:
+  title: labseq-backend API
+  version: 1.0.0-SNAPSHOT
